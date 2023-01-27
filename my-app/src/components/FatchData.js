@@ -40,20 +40,14 @@ const FatchData = () => {
             const countryName = country.name.common.toLowerCase();
             return countryName.startsWith(value);
         });
-        // const searchCountry2 = counties.filter((country)=>{
-        //     const capital = country.capital.toLowerCase();
-        //     return capital.startsWith(value);
-        // });
-        setFilterCounties(searchCountry);
-        // setFilterCounties(searchCountry2);
-        
+        setFilterCounties(searchCountry);   
     }
     
     return (
         <>
         <h1>Country App</h1>
         <Search onSearch={handelSearch} />
-        {isLoding && <h2>Loading...</h2>}
+        {isLoding && <h2 style={{textAlign:"center"}}>Loading...</h2>}
         {error && <h2>{error.message}</h2>}
         {counties && <Countries counties={filterCounties} onRemove={handelRemoveCountry} />}
         </>
